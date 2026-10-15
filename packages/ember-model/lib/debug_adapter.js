@@ -49,7 +49,7 @@ var DebugAdapter = Ember.DataAdapter.extend({
   },
 
   getRecordKeywords: function(record) {
-    var keywords = [], keys = Ember.A(['id']);
+    var keywords = [], keys = ['id'];
     record.constructor.getAttributes().forEach(function(key) {
       keys.push(key);
     });
@@ -78,8 +78,8 @@ var DebugAdapter = Ember.DataAdapter.extend({
   },
 
   observeRecord: function(record, recordUpdated) {
-    var releaseMethods = Ember.A(), self = this,
-        keysToObserve = Ember.A(['id', 'isNew', 'isDirty']);
+    var releaseMethods = [], self = this,
+        keysToObserve = ['id', 'isNew', 'isDirty'];
 
     record.constructor.getAttributes().forEach(function(key) {
       keysToObserve.push(key);
